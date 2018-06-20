@@ -14,5 +14,5 @@ def download(url, user_agent='wswp', num_retries=2):
         if num_retries > 0:
             if hasattr(e, 'code') and 500 <= e.code < 600:
                 # recursively retry 5xx HTTP errors
-                return download(url, num_retries - 1)
+                return download(url, user_agent, num_retries - 1)
     return html
